@@ -20,7 +20,6 @@ SRCB = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c 
 OBJS = ${SRC:.c=.o}
 BONUS_OBJS = ${SRCB:.c=.o}
 
-HEADER = libft.h
 INCLUDE = -I .
 COMP = cc
 RM = rm -f
@@ -29,7 +28,7 @@ FLAGS = -Wall -Wextra -Werror
 	${COMP} ${FLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
 	
 $(NAME): ${OBJS}
-	ar rcs ${NAME} ${OBJS} ${HEADER}
+	ar rcs ${NAME} ${OBJS}
 
 all:    ${NAME}
 

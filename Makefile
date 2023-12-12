@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+         #
+#    By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 13:42:48 by alinevieira       #+#    #+#              #
-#    Updated: 2023/12/11 22:51:44 by alvieira         ###   ########.fr        #
+#    Updated: 2023/12/12 14:23:35 by alinevieira      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJS = ${SRC:.c=.o}
 CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I include
+INCLUDE = -I .
 MAKE = make -C
 LIBFT_PATH = libft
 LIBFT = libft/libft.a

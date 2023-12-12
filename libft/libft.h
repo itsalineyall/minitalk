@@ -6,7 +6,7 @@
 /*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 17:32:02 by alvieira          #+#    #+#             */
-/*   Updated: 2023/12/11 18:43:21 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/12/12 03:22:55 by alinevieira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define LIBFT_H
 
 # include <stdio.h>
-# include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <string.h>
 # include <ctype.h>
-# include <stdarg.h>
 # include <stdbool.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -66,13 +66,13 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 // parte printf
-int	ft_printf(const char *str, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
-int	ft_putnbr(int n);
-int ft_hex(unsigned int	n, char c);
-int	ft_putnbr_u(unsigned int n);
-int ft_pointer(unsigned long long p);
+int		ft_printf(const char *str, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_putnbr(int n);
+int		ft_hex(unsigned int	n, char c);
+int		ft_putnbr_u(unsigned int n);
+int		ft_pointer(unsigned long long p);
 
 // bonus
 t_list	*ft_lstnew(void *content);
