@@ -3,18 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+         #
+#    By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 13:42:48 by alinevieira       #+#    #+#              #
-#    Updated: 2023/12/11 19:26:41 by alinevieira      ###   ########.fr        #
+#    Updated: 2023/12/11 22:51:44 by alvieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk.a
-NAMELIBFT = libft/libft.a
-
-SRC_C = src/client.c
-SRC_S = src/server.c
 
 OBJS = ${SRC:.c=.o}
 
@@ -24,19 +20,16 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I include
 MAKE = make -C
 LIBFT_PATH = libft
-LIBFT = -L ${LIBFT_PATH} -lft
+LIBFT = libft/libft.a
 
 all:	${NAME}
 
-${NAMELIBFT}:
+${LIBFT}:
 		${MAKE} ${LIBFT_PATH} all
 
-${NAME}:
-		${CC} ${CFLAGS} ${SRC_C} ${INCLUDE} ${NAMELIBFT} -o client
-		${CC} ${CFLAGS} ${SRC_S} ${INCLUDE} ${NAMELIBFT} -o server
-
-$(NAMELIBFT): ${OBJS}
-		${MAKE} ${LIBFT_PATH} all
+${NAME}: ${LIBFT}
+		${CC} ${CFLAGS} client.c ${INCLUDE} ${LIBFT} -o client
+		${CC} ${CFLAGS} server.c ${INCLUDE} ${LIBFT} -o server
 
 clean:
 		${MAKE} ${LIBFT_PATH} clean
@@ -44,7 +37,7 @@ clean:
 
 fclean: clean
 		${MAKE} ${LIBFT_PATH} fclean
-		${RM} -rf client server
+		${RM} client server
 
 re: fclean all
 

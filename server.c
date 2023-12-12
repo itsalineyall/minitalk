@@ -3,47 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:55:13 by alinevieira       #+#    #+#             */
-/*   Updated: 2023/12/11 18:20:21 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/12/12 00:54:05 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void sig_handler(int signum)
+void sig_handler(int signal)
 {
-    static int  i = 0;
-    static char c = 0;
+    static int  i;
+    static char bits;
 
-    if (signum == SIGUSR1)
-        c = c | (1 << i);
+    i = 0;
+    bits = 0;
+
+    if (signal == SIGUSR1)
+        bits = bits | (1 << i);
     i++;
     if (i == 8)
     {
-        write(1, &c, 1);
+        write(1, &bits, 1);
         i = 0;
-        c = 0;
+        bits = 0;
     }
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
-    struct sigaction    sa;
+    int pid;
 
-    int                 pid;
-
+    (void)argv;
+    if (argc != 1)
+    {
+        ft_printf("Error! Please, execute only -> ./server\n");
+        return (0);
+    }
     pid = getpid();
-    sigemptyset(&sa.sa_mask);
-    sa.sa_handler = &sig_handler;
-    sa.sa_flags = SA_SIGINFO;
 
-    sigaction(SIGUSR1, &sa, NULL);
-    sigaction(SIGUSR2, &sa, NULL);
-
-    printf("Hello! The ID of this process is: %d \n", pid); // ALTERAR DEPOIS
+    ft_printf("Hey! The PID of this process is: %d \n", pid);
+    
     while (1)
-        pause();
+    {
+		signal(SIGUSR1, sig_handler);
+		signal(SIGUSR2, sig_handler);
+    }
     return (0);
 }
