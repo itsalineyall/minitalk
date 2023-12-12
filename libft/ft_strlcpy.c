@@ -6,7 +6,7 @@
 /*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 19:35:44 by alvieira          #+#    #+#             */
-/*   Updated: 2023/04/16 14:17:37 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/12/12 22:23:10 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 			dst[j] = src[j];
 			j++;
 		}
-	dst[j] = '\0';
+		dst[j] = '\0';
 	}
 	return (ft_strlen(src));
 }

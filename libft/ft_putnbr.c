@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:19:07 by alvieira          #+#    #+#             */
-/*   Updated: 2023/12/11 18:18:21 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/12/12 22:21:10 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_count(long int nb)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (nb > 0)
@@ -30,7 +30,7 @@ static int	ft_count(long int nb)
 int	ft_putnbr(int n)
 {
 	long int	nb;
-	int	count;
+	int			count;
 
 	count = 0;
 	nb = n;

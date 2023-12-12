@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+         #
+#    By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 13:42:48 by alinevieira       #+#    #+#              #
-#    Updated: 2023/12/12 14:23:35 by alinevieira      ###   ########.fr        #
+#    Updated: 2023/12/12 21:52:53 by alvieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

@@ -3,45 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 23:07:06 by alvieira          #+#    #+#             */
-/*   Updated: 2023/12/11 18:21:39 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/12/12 22:20:53 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// cspdiuxX%
+
+// # define YELLOW "\033[1;33m" // vai negrito tbm
+// # define RESET "\033[0m" // vai resetar para a cor original
+// # define ITALIC "\033[3m\033[36m" // vai deixar italico e azul
+// # define BLUE "\033[0;34m" // vai deixar azul
+// # define GREEN "\033[32m" // vai deixar verde
+// # define RED "\033[31m" // vai deixar vermelho
+// # define CIANO "\033[36m" // vai deixar ciano
 
 static int	ft_verify(va_list args, char c)
 {
 	if (c == 'c')
-		return(ft_putchar(va_arg(args, int)));
+		return (ft_putchar(va_arg(args, int)));
 	if (c == 's')
-		return(ft_putstr(va_arg(args, char *)));
+		return (ft_putstr(va_arg(args, char *)));
 	if (c == 'i' || c == 'd')
-		return(ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr(va_arg(args, int)));
 	if (c == 'x' || c == 'X')
-		return(ft_hex(va_arg(args, unsigned int), c));
+		return (ft_hex(va_arg(args, unsigned int), c));
 	if (c == 'u')
-		return(ft_putnbr_u(va_arg(args, unsigned int)));
+		return (ft_putnbr_u(va_arg(args, unsigned int)));
 	if (c == 'p')
-		return(ft_pointer(va_arg(args, unsigned long long)));
+		return (ft_pointer(va_arg(args, unsigned long long)));
 	if (c == '%')
-		return(ft_putchar('%'));
+		return (ft_putchar('%'));
 	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
-    va_list args;
-
-    va_start(args, str);
-    int	i;
-	int count;
+	va_list	args;
+	int		i;
+	int		count;
 
 	i = 0;
 	count = 0;
+	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -52,13 +58,13 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-		count++;
-		ft_putchar(str[i]);		
-		i++;
+			count++;
+			ft_putchar(str[i]);
+			i++;
 		}
 	}
 	va_end(args);
-	return(count);
+	return (count);
 }
 
 // int	main(void)
@@ -129,8 +135,7 @@ int	ft_printf(const char *str, ...)
 // 	printf("return = %i\n\n", re);
 // 	printf("%sprintf%s\n", CIANO, RESET);
 // 	int ro = printf("%p\n", &g);
-// 	printf("return = %i\n\n", ro);
-	
+// 	printf("return = %i\n\n", ro);	
 // 	if (re == ro)
 // 		printf("%sYEAAAAHHH%s\n\n\n", GREEN, RESET);
 // 	else

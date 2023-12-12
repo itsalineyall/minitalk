@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:18:04 by alvieira          #+#    #+#             */
-/*   Updated: 2023/12/11 18:18:28 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/12/12 22:21:17 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	ft_putstr(char *str)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	while(str[i])
+	while (str[i])
 	{
-		write (1, &str[i], 1);
+		write(1, &str[i], 1);
 		i++;
 	}
-	return(i);
+	return (i);
 }

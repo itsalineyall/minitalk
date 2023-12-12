@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 10:47:33 by alvieira          #+#    #+#             */
-/*   Updated: 2023/12/11 18:17:14 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/12/12 22:20:45 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_count(unsigned int nb)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (nb > 0)
@@ -29,12 +29,11 @@ static int	ft_count(unsigned int nb)
 
 static void	ft_printhexa(unsigned int n, char c)
 {
-	char			*base_x;
-	char			*base_X;
+	char	*b_min;
+	char	*b_mai;
 
-	base_x = "0123456789abcdef";
-	base_X = "0123456789ABCDEF";
-
+	b_min = "0123456789abcdef";
+	b_mai = "0123456789ABCDEF";
 	if (n >= 16)
 	{
 		ft_printhexa(n / 16, c);
@@ -47,17 +46,15 @@ static void	ft_printhexa(unsigned int n, char c)
 		else
 		{
 			if (c == 'x')
-				ft_putchar(base_x[n]);
+				ft_putchar(b_min[n]);
 			if (c == 'X')
-			ft_putchar(base_X[n]);
+				ft_putchar(b_mai[n]);
 		}
 	}
 }
 
-
-int ft_hex(unsigned int	n, char c)
+int	ft_hex(unsigned int n, char c)
 {
 	ft_printhexa(n, c);
-
 	return (ft_count(n));
 }
